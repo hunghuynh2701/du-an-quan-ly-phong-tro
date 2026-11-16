@@ -1,28 +1,46 @@
-# Dự án Quản Lý Phòng Trọ
+# Hệ thống Quản Lý Phòng Trọ Đà Nẵng
 
-Website quản lý và tìm kiếm phòng trọ theo khu vực, trường học và mức giá tại Đà Nẵng. Dự án được xây dựng bằng HTML, CSS và JavaScript thuần, phù hợp cho mục tiêu demo hoặc đồ án chuyên ngành.
+[![Status](https://img.shields.io/badge/status-demo-success)](https://github.com/hunghuynh2701/du-an-quan-ly-phong-tro)
+[![Tech](https://img.shields.io/badge/stack-HTML%20%7C%20CSS%20%7C%20JS-blue)](https://github.com/hunghuynh2701/du-an-quan-ly-phong-tro)
 
-## Tính năng chính
+## Tổng quan
 
-- Tìm kiếm phòng trọ theo:
-  - trường đại học
-  - khoảng giá
-  - diện tích
-- Xem danh sách phòng trọ mới nhất
-- Đăng ký / đăng nhập người dùng
-- Giao diện dành cho:
-  - người thuê trọ
-  - chủ trọ
-  - quản trị viên
-- Quản lý phòng trọ và yêu cầu thuê
-- Dashboard thống kê cơ bản
+Dự án này là một hệ thống quản lý và tìm kiếm phòng trọ được xây dựng nhằm hỗ trợ người thuê, chủ trọ và quản trị viên trong việc quản lý thông tin phòng trọ tại Đà Nẵng. Hệ thống cung cấp giao diện trực quan, dễ sử dụng, phù hợp cho mục tiêu triển khai như một sản phẩm demo hoặc ứng dụng học tập trong đồ án chuyên ngành.
+
+Mục tiêu chính của dự án là:
+- giúp người thuê tìm phòng trọ theo tiêu chí như vị trí, mức giá, diện tích và trường học gần đó;
+- hỗ trợ chủ trọ quản lý danh sách phòng và thông tin liên quan;
+- hỗ trợ quản trị viên theo dõi người dùng, yêu cầu thuê và thống kê cơ bản.
+
+## Chức năng chính
+
+### 1. Tìm kiếm và lọc phòng trọ
+- Tìm phòng theo trường đại học
+- Lọc theo khoảng giá
+- Lọc theo diện tích phòng
+- Hiển thị các phòng trọ mới nhất
+
+### 2. Đăng ký và đăng nhập
+- Người dùng có thể tạo tài khoản mới
+- Hệ thống hỗ trợ đăng nhập với vai trò khác nhau
+
+### 3. Dashboard theo vai trò
+- Người thuê: xem thông tin phòng phù hợp và gửi yêu cầu thuê
+- Chủ trọ: quản lý phòng trọ
+- Quản trị viên: kiểm soát người dùng, yêu cầu thuê và thống kê dữ liệu
+
+### 4. Quản lý dữ liệu
+- Quản lý danh sách phòng trọ
+- Quản lý người dùng
+- Quản lý yêu cầu thuê
+- Hiển thị các thống kê cơ bản
 
 ## Công nghệ sử dụng
 
 - HTML5
 - CSS3
 - JavaScript
-- Tailwind CSS (trực tiếp qua CDN)
+- Tailwind CSS (qua CDN)
 - Font Awesome
 
 ## Cấu trúc thư mục
@@ -42,14 +60,21 @@ Website quản lý và tìm kiếm phòng trọ theo khu vực, trường học 
 │   ├── renter.js
 │   ├── rooms.js
 │   └── utils.js
-└── README.md
+├── README.md
+└── LICENSE (nếu có)
 ```
 
-## Cách chạy dự án
+## Yêu cầu hệ thống
 
-Vì đây là dự án dạng static website, bạn chỉ cần mở file `index.html` trong trình duyệt.
+- Trình duyệt hiện đại như Chrome, Edge, Firefox
+- Không yêu cầu cài đặt môi trường phức tạp vì đây là dự án frontend tĩnh
 
-Hoặc nếu muốn chạy qua máy chủ local nhẹ hơn:
+## Hướng dẫn chạy dự án
+
+### Cách 1: Mở trực tiếp trong trình duyệt
+- Mở file `index.html` bằng trình duyệt Chrome/Edge/Firefox.
+
+### Cách 2: Chạy bằng máy chủ local
 
 ```bash
 python -m http.server 8000
@@ -61,30 +86,37 @@ Sau đó mở địa chỉ:
 http://localhost:8000
 ```
 
-## Hướng dẫn sử dụng
+## Quy trình sử dụng
 
-1. Mở trang chủ để xem danh sách phòng trọ.
-2. Chọn tiêu chí tìm kiếm phù hợp.
-3. Nhấn nút "Đăng Nhập" hoặc "Đăng Ký" để vào hệ thống.
-4. Theo vai trò tương ứng:
-   - Người thuê: xem phòng và gửi yêu cầu thuê
-   - Chủ trọ: quản lý phòng trọ
-   - Admin: quản lý người dùng, yêu cầu và thống kê
+1. Mở trang chủ của hệ thống.
+2. Chọn tiêu chí tìm kiếm phù hợp như trường học, khoảng giá hoặc diện tích.
+3. Nhấn nút "Tìm Kiếm" để lọc danh sách phòng.
+4. Nếu cần, thực hiện đăng nhập hoặc đăng ký tài khoản.
+5. Dựa trên vai trò, người dùng sẽ truy cập vào các chức năng quản lý tương ứng.
 
-## Ghi chú
+## Ghi chú về dự án
 
-Dự án hiện là phiên bản demo frontend / logic giả lập trong trình duyệt. Nếu muốn nâng cấp thành sản phẩm thực tế, nên bổ sung:
+Dự án hiện đang là phiên bản demo frontend, tập trung vào giao diện người dùng và trải nghiệm tương tác. Nội dung dữ liệu được mô phỏng trong JavaScript để minh họa chức năng hệ thống. Đây là nền tảng phù hợp để tiếp tục phát triển thêm backend, database và xác thực người dùng thực tế trong các giai đoạn sau.
 
-- backend (Node.js / PHP / Java / .NET)
-- database (MySQL / PostgreSQL / MongoDB)
+## Phát triển trong tương lai
+
+Các tính năng có thể mở rộng trong phiên bản nâng cấp:
+- backend bằng Node.js, PHP hoặc Java
+- database MySQL/PostgreSQL/MongoDB
 - xác thực người dùng thực tế
-- upload hình ảnh phòng trọ
-- API REST
+- quản lý hình ảnh phòng trọ
+- API RESTful
+- phân quyền người dùng chi tiết hơn
+- báo cáo thống kê nâng cao
 
 ## Tác giả
 
 - Huỳnh Duy Hưng
 
-## License
+## Giấy phép
 
-Dự án này được cung cấp để phục vụ mục đích học tập và đồ án chuyên ngành.
+Dự án này được cung cấp cho mục đích học tập, nghiên cứu và thực hiện đồ án chuyên ngành.
+
+## Liên kết
+
+- GitHub Repository: https://github.com/hunghuynh2701/du-an-quan-ly-phong-tro
