@@ -1,16 +1,28 @@
-# Hệ thống Quản Lý Phòng Trọ Đà Nẵng
+<p align="center">
+  <img src="assets/repo-banner.svg" alt="Hệ thống Quản Lý Phòng Trọ Đà Nẵng" width="100%">
+</p>
 
 [![Status](https://img.shields.io/badge/status-demo-success)](https://github.com/hunghuynh2701/du-an-quan-ly-phong-tro)
 [![Tech](https://img.shields.io/badge/stack-HTML%20%7C%20CSS%20%7C%20JS-blue)](https://github.com/hunghuynh2701/du-an-quan-ly-phong-tro)
 
-## Tổng quan
+## Giới thiệu đề tài
 
-Dự án này là một hệ thống quản lý và tìm kiếm phòng trọ được xây dựng nhằm hỗ trợ người thuê, chủ trọ và quản trị viên trong việc quản lý thông tin phòng trọ tại Đà Nẵng. Hệ thống cung cấp giao diện trực quan, dễ sử dụng, phù hợp cho mục tiêu triển khai như một sản phẩm demo hoặc ứng dụng học tập trong đồ án chuyên ngành.
+Nhu cầu tìm kiếm chỗ ở phù hợp tại Đà Nẵng, đặc biệt đối với sinh viên và người lao động, đòi hỏi thông tin phòng trọ cần được trình bày rõ ràng và dễ tra cứu. Đề tài **“Hệ thống Quản Lý Phòng Trọ Đà Nẵng”** xây dựng một giao diện web minh họa quy trình tìm kiếm phòng và quản lý thông tin theo các vai trò người thuê, chủ trọ và quản trị viên.
 
-Mục tiêu chính của dự án là:
-- giúp người thuê tìm phòng trọ theo tiêu chí như vị trí, mức giá, diện tích và trường học gần đó;
-- hỗ trợ chủ trọ quản lý danh sách phòng và thông tin liên quan;
-- hỗ trợ quản trị viên theo dõi người dùng, yêu cầu thuê và thống kê cơ bản.
+Đây là phiên bản frontend phục vụ mục đích học tập và trình diễn. Dữ liệu mẫu được lưu trong trình duyệt bằng `localStorage`; dự án chưa kết nối máy chủ hoặc cơ sở dữ liệu dùng chung.
+
+## Mục tiêu đề tài
+
+- Xây dựng giao diện web giúp người thuê tra cứu phòng theo trường đại học, khoảng giá và diện tích.
+- Minh họa các chức năng cơ bản cho người thuê, chủ trọ và quản trị viên.
+- Thực hành tổ chức ứng dụng frontend bằng HTML, CSS và JavaScript.
+- Tạo nền tảng để có thể phát triển tiếp với backend, cơ sở dữ liệu và xác thực thực tế.
+
+## Phạm vi thực hiện
+
+- Địa bàn và dữ liệu minh họa: các phòng trọ tại Đà Nẵng.
+- Chức năng tập trung vào tìm kiếm, hiển thị và quản lý dữ liệu mẫu trong trình duyệt.
+- Không bao gồm giao dịch thuê thực tế, xác minh danh tính, thanh toán hoặc đồng bộ dữ liệu giữa nhiều người dùng.
 
 ## Chức năng chính
 
@@ -60,8 +72,11 @@ Mục tiêu chính của dự án là:
 │   ├── renter.js
 │   ├── rooms.js
 │   └── utils.js
+├── assets/
+│   ├── logo.svg
+│   └── repo-banner.svg
 ├── README.md
-└── LICENSE (nếu có)
+└── .gitignore
 ```
 
 ## Yêu cầu hệ thống
@@ -96,7 +111,7 @@ http://localhost:8000
 
 ## Ghi chú về dự án
 
-Dự án hiện đang là phiên bản demo frontend, tập trung vào giao diện người dùng và trải nghiệm tương tác. Nội dung dữ liệu được mô phỏng trong JavaScript để minh họa chức năng hệ thống. Đây là nền tảng phù hợp để tiếp tục phát triển thêm backend, database và xác thực người dùng thực tế trong các giai đoạn sau.
+Dự án hiện đang là phiên bản demo frontend, tập trung vào giao diện người dùng và trải nghiệm tương tác. Dữ liệu ban đầu được mô phỏng trong JavaScript và lưu tại `localStorage` của trình duyệt, vì vậy dữ liệu không được chia sẻ giữa các thiết bị. Không sử dụng dữ liệu demo cho môi trường thực tế.
 
 ## Phát triển trong tương lai
 

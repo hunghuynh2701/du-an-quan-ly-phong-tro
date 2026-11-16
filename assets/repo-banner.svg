@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">Hệ thống Quản Lý Phòng Trọ Đà Nẵng</title>
+  <desc id="desc">Nền tảng demo tìm kiếm và quản lý phòng trọ dành cho người thuê, chủ trọ và quản trị viên.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#25145f"/>
+      <stop offset=".55" stop-color="#5145cd"/>
+      <stop offset="1" stop-color="#1677b8"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".2"/>
+      <stop offset="1" stop-color="#fff" stop-opacity=".04"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="360" rx="30" fill="url(#bg)"/>
+  <circle cx="1060" cy="50" r="155" fill="#fff" opacity=".06"/>
+  <circle cx="1115" cy="340" r="175" fill="#39d0c3" opacity=".12"/>
+  <path d="M0 300c200-55 330 25 520-12s320-83 680-8v80H0z" fill="#121845" opacity=".18"/>
+  <g transform="translate(90 79)">
+    <rect width="112" height="112" rx="27" fill="url(#glass)" stroke="#fff" stroke-opacity=".28"/>
+    <path d="m19 51 37-30 37 30v39a6 6 0 0 1-6 6H25a6 6 0 0 1-6-6z" fill="#fff"/>
+    <path d="M46 96V68a10 10 0 0 1 20 0v28" fill="#5145cd"/>
+    <path d="M31 57h15v14H31zm34 0h15v14H65z" fill="#1677b8"/>
+    <path d="m15 52 41-34 41 34" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"/>
+  </g>
+  <g fill="#fff" font-family="Arial, Helvetica, sans-serif">
+    <text x="238" y="130" font-size="24" font-weight="700" letter-spacing="3" opacity=".82">ĐỒ ÁN CHUYÊN NGÀNH</text>
+    <text x="235" y="193" font-size="48" font-weight="700">QUẢN LÝ PHÒNG TRỌ</text>
+    <text x="238" y="239" font-size="24" opacity=".9">Tìm kiếm và quản lý chỗ ở tại Đà Nẵng</text>
+    <text x="238" y="290" font-size="17" opacity=".76">NGƯỜI THUÊ  •  CHỦ TRỌ  •  QUẢN TRỊ VIÊN</text>
+  </g>
+  <g transform="translate(925 101)" fill="none" stroke="#fff" stroke-opacity=".68" stroke-width="3">
+    <rect x="0" y="15" width="110" height="162" rx="8"/>
+    <path d="M20 42h25v25H20zm45 0h25v25H65zM20 86h25v25H20zm45 0h25v25H65zM20 130h25v25H20zm45 0h25v25H65z"/>
+  </g>
+</svg>
