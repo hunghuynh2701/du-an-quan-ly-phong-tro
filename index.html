@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ Thống Quản Lý Phòng Trọ Đà Nẵng</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- Header -->
+    <nav id="navbar" class="gradient-bg text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="#" onclick="showPage('home')" class="flex items-center space-x-2">
+                    <i class="fas fa-home text-2xl"></i>
+                    <span class="text-xl font-bold">Trọ Đà Nẵng</span>
+                </a>
+                <div id="navMenu" class="flex items-center space-x-4">
+                    <button onclick="showPage('home')" class="hover:bg-white/20 px-3 py-2 rounded">
+                        <i class="fas fa-search mr-1"></i> Tìm Trọ
+                    </button>
+                    <button onclick="showModal('loginModal')" class="bg-white text-purple-600 px-4 py-2 rounded-lg font-semibold hover:bg-gray-100">
+                        <i class="fas fa-sign-in-alt mr-1"></i> Đăng Nhập
+                    </button>
+                    <button onclick="showModal('registerModal')" class="border-2 border-white px-4 py-2 rounded-lg font-semibold hover:bg-white/20">
+                        <i class="fas fa-user-plus mr-1"></i> Đăng Ký
+                    </button>
+                </div>
+                <div id="userMenu" class="hidden items-center space-x-4">
+                    <span id="welcomeUser" class="font-semibold"></span>
+                    <button onclick="showDashboard()" class="hover:bg-white/20 px-3 py-2 rounded">
+                        <i class="fas fa-tachometer-alt mr-1"></i> Dashboard
+                    </button>
+                    <button onclick="logout()" class="bg-red-500 px-4 py-2 rounded-lg font-semibold hover:bg-red-600">
+                        <i class="fas fa-sign-out-alt mr-1"></i> Đăng Xuất
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="homePage" class="page">
+        <!-- Hero Section -->
+        <div class="gradient-bg text-white py-16">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Tìm Phòng Trọ Gần Trường Đại Học</h1>
+                <p class="text-xl mb-8 opacity-90">Hệ thống cho thuê phòng trọ uy tín tại Đà Nẵng</p>
+                
+                <!-- Search Box -->
+                <div class="max-w-4xl mx-auto bg-white rounded-xl p-6 shadow-2xl">
+                    <div class="grid md:grid-cols-4 gap-4">
+                        <select id="searchUniversity" class="text-gray-700 p-3 border rounded-lg focus:ring-2 focus:ring-purple-500">
+                            <option value="">Chọn trường đại học</option>
+                            <option value="Đại học Bách Khoa">ĐH Bách Khoa Đà Nẵng</option>
+                            <option value="Đại học Kinh Tế">ĐH Kinh Tế Đà Nẵng</option>
+                            <option value="Đại học Sư Phạm">ĐH Sư Phạm Đà Nẵng</option>
+                            <option value="Đại học Ngoại Ngữ">ĐH Ngoại Ngữ Đà Nẵng</option>
+                            <option value="Đại học Duy Tân">ĐH Duy Tân</option>
+                            <option value="Đại học FPT">ĐH FPT Đà Nẵng</option>
+                            <option value="Đại học Đông Á">ĐH Đông Á</option>
+                        </select>
+                        <select id="searchPrice" class="text-gray-700 p-3 border rounded-lg focus:ring-2 focus:ring-purple-500">
+                            <option value="">Khoảng giá</option>
+                            <option value="0-1500000">Dưới 1.5 triệu</option>
+                            <option value="1500000-2500000">1.5 - 2.5 triệu</option>
+                            <option value="2500000-4000000">2.5 - 4 triệu</option>
+                            <option value="4000000-99999999">Trên 4 triệu</option>
+                        </select>
+                        <select id="searchArea" class="text-gray-700 p-3 border rounded-lg focus:ring-2 focus:ring-purple-500">
+                            <option value="">Diện tích</option>
+                            <option value="0-15">Dưới 15m²</option>
+                            <option value="15-25">15 - 25m²</option>
+                            <option value="25-40">25 - 40m²</option>
+                            <option value="40-999">Trên 40m²</option>
+                        </select>
+                        <button onclick="searchRooms()" class="bg-purple-600 text-white p-3 rounded-lg font-semibold hover:bg-purple-700 transition">
+                            <i class="fas fa-search mr-2"></i>Tìm Kiếm
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Room Listings -->
+        <div class="container mx-auto px-4 py-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">
+                <i class="fas fa-building text-purple-600 mr-2"></i>Phòng Trọ Mới Nhất
+            </h2>
+            <div id="roomListings" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Rooms will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="adminDashboard" class="page hidden">
+        <div class="flex min-h-screen">
+            <!-- Sidebar -->
+            <div class="w-64 gradient-bg text-white min-h-screen">
+                <div class="p-6 border-b border-white/20">
+                    <h2 class="text-xl font-bold"><i class="fas fa-user-shield mr-2"></i>Admin Panel</h2>
+                </div>
+                <nav class="mt-4">
+                    <a onclick="showAdminTab('users')" class="sidebar-item active flex items-center px-6 py-3 cursor-pointer hover:bg-white/20">
+                        <i class="fas fa-users mr-3 w-5"></i>Quản lý người dùng
+                    </a>
+                    <a onclick="showAdminTab('rooms')" class="sidebar-item flex items-center px-6 py-3 cursor-pointer hover:bg-white/20">
+                        <i class="fas fa-door-open mr-3 w-5"></i>Quản lý phòng trọ
+                    </a>
+                    <a onclick="showAdminTab('requests')" class="sidebar-item flex items-center px-6 py-3 cursor-pointer hover:bg-white/20">
+                        <i class="fas fa-clipboard-list mr-3 w-5"></i>Yêu cầu thuê
+                    </a>
+                    <a onclick="showAdminTab('stats')" class="sidebar-item flex items-center px-6 py-3 cursor-pointer hover:bg-white/20">
+                        <i class="fas fa-chart-bar mr-3 w-5"></i>Thống kê
+                    </a>
+                </nav>
+            </div>
+            <!-- Content -->
+            <div class="flex-1 p-8 bg-gray-100">
+                <div id="adminUsers" class="tab-content active">
+                    <h3 class="text-2xl font-bold mb-6"><i class="fas fa-users text-purple-600 mr-2"></i>Quản lý người dùng</h3>
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <table class="w-full">
+                            <thead class="bg-purple-600 text-white">
+                                <tr>
+                                    <th class="px-6 py-4 text-left">ID</th>
+                                    <th class="px-6 py-4 text-left">Họ tên</th>
+                                    <th class="px-6 py-4 text-left">Email</th>
+                                    <th class="px-6 py-4 text-left">SĐT</th>
+                                    <th class="px-6 py-4 text-left">Vai trò</th>
+                                    <th class="px-6 py-4 text-left">Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody id="usersTable"></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="adminRooms" class="tab-content">
+                    <h3 class="text-2xl font-bold mb-6"><i class="fas fa-door-open text-purple-600 mr-2"></i>Quản lý phòng trọ</h3>
+                    <div id="adminRoomsList" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+                </div>
+                <div id="adminRequests" class="tab-content">
+                    <h3 class="text-2xl font-bold mb-6"><i class="fas fa-clipboard-list text-purple-600 mr-2"></i>Yêu cầu thuê phòng</h3>
+                    <div id="adminRequestsList" class="space-y-4"></div>
+                </div>
+                <div id="adminStats" class="tab-content">
+                    <h3 class="text-2xl font-bold mb-6"><i class="fas fa-chart-bar text-purple-600 mr-2"></i>Thống kê hệ thống</h3>
+                    <div class="grid md:grid-cols-4 gap-6" id="statsCards"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Landlord Dashboard -->
+    <div id="landlordDashboard" class="page hidden">
+        <div class="container mx-auto px-4 py-8">
+            <h2 class="text-3xl font-bold mb-8"><i class="fas fa-home text-purple-600 mr-2"></i>Quản lý phòng trọ của bạn</h2>
+            
+            <!-- Add Room Button -->
+            <button onclick="showModal('addRoomModal')" class="bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 mb-8 transition">
+                <i class="fas fa-plus mr-2"></i>Đăng phòng mới
+            </button>
+
+            <!-- My Rooms -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12" id="myRooms"></div>
+
+            <!-- Rental Requests -->
+            <h3 class="text-2xl font-bold mb-6"><i class="fas fa-envelope text-purple-600 mr-2"></i>Yêu cầu thuê phòng</h3>
+            <div id="myRequests" class="space-y-4"></div>
+        </div>
+    </div>
+
+    <!-- Renter Dashboard -->
+    <div id="renterDashboard" class="page hidden">
+        <div class="container mx-auto px-4 py-8">
+            <h2 class="text-3xl font-bold mb-8"><i class="fas fa-user text-purple-600 mr-2"></i>Tài khoản của tôi</h2>
+            
+            <!-- Phòng đang thuê -->
+            <h3 class="text-2xl font-bold mb-6"><i class="fas fa-home text-green-600 mr-2"></i>Phòng đang thuê</h3>
+            <div id="myRentedRoom" class="mb-12"></div>
+
+            <!-- My Rental Requests -->
+            <h3 class="text-2xl font-bold mb-6"><i class="fas fa-paper-plane text-purple-600 mr-2"></i>Lịch sử yêu cầu thuê</h3>
+            <div id="mySentRequests" class="space-y-4 mb-12"></div>
+
+            <!-- Saved Rooms -->
+            <h3 class="text-2xl font-bold mb-6"><i class="fas fa-heart text-pink-500 mr-2"></i>Phòng đã lưu</h3>
+            <div id="savedRooms" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </div>
+    </div>
+
+    <!-- Include Modals -->
+    <div id="modalsContainer"></div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 z-50">
+        <span id="toastMessage"></span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/modals.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/rooms.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/landlord.js"></script>
+    <script src="js/renter.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
